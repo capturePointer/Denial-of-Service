@@ -79,6 +79,10 @@ void parse_args(int argc, char *argv[], int *port, char **target_host, int *conn
             }
         }
 
+        if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
+            display_help(NULL, false); 
+        }
+
         if (strcmp(argv[i], "-V") == 0 || strcmp(argv[i], "--version") == 0) {
             display_version(); 
         }
