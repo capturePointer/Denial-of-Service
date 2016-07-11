@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     printf("==> Attempting %d connections at port %d\n", qnt_conn, port);
 
     /* Oppening connections in service */
-    for(int i = 0; i < qnt_conn; i++){
+    for (int i = 0; i < qnt_conn; i++) {
         sock = socket(AF_INET, SOCK_STREAM, 0);
        
         target.sin_family = AF_INET;

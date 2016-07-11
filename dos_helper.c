@@ -68,7 +68,12 @@ void parse_args(int argc, char *argv[], int *port, char **target_host, int *conn
             if (!is_valid_ip(*target_host)) {
                 struct hostent *host;
                 host = gethostbyname(*target_host);
-                *target_host = inet_ntoa(*((struct in_addr *)host->h_addr));
+
+                if (host != NULL) {
+                    *target_host = inet_ntoa(*((struct in_addr *)host->h_addr));
+                } else {
+                    display_help("Invalid domain", true); 
+                }
             }
 
             continue;
