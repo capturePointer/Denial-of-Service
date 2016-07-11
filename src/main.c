@@ -1,5 +1,5 @@
 /*
- * DoS simple attack implementation by Giovani Ferreira
+ * Simple DoS attack implementation by Giovani Ferreira
  */
 
 #include<stdio.h>

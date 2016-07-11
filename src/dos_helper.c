@@ -18,11 +18,28 @@ _Bool is_valid_ip(char *ip)
 
 void display_help(char *msg, _Bool with_error)
 {
-    printf(":: Error: %s\n", msg);
-    printf("\nUsage: dos [DOMAIN/IP] [PORT]\n");
-    printf("");
+    if (msg != NULL) {
+        printf(":: Error: %s\n\n", msg);
+    }
+
+    printf("Usage: dos [OPTION...] DOMAIN/IP\n");
+    printf("  -p, --port\t\tSet port for attack. Default is port 21\n");
+    printf("  -v, --verbose\t\tSet operation mode to verbose\n");
+    printf("  -c, --connections\tSet how many connections the program will attempt in target\n");
+    printf("  -V, --version\t\tDisplay the version and useful information\n");
 
     exit(with_error);
+}
+
+void display_version()
+{
+    printf(":: Simple DoS Attack\n");
+    printf("Author: Giovani Ferreira\n");
+    printf("Source: https://github.com/giovanifss/Denial-of-Service\n");
+    printf("License: GPLv3\n");
+    printf("Version: 0.2\n");
+
+    exit(0);
 }
 
 void parse_args(int argc, char *argv[], int *port, char **target_host, int *connections, _Bool *verbose)
@@ -60,6 +77,10 @@ void parse_args(int argc, char *argv[], int *port, char **target_host, int *conn
             } else {
                 display_help("Number of connections must be a number", true); 
             }
+        }
+
+        if (strcmp(argv[i], "-V") == 0 || strcmp(argv[i], "--version") == 0) {
+            display_version(); 
         }
 
         if (*target_host == NULL) {
