@@ -37,9 +37,9 @@ int main(int argc, char *argv[])
 
         if (connection == 0) {
             if (verbose)
-                printf("\tConnection number %d oppened\n", i + 1);
+                printf("\t[+] Connection number %d oppened\n", i + 1);
         } else {
-            printf("\t:: Connection number %d failed\n", i + 1);
+            printf("\t[-] Connection number %d failed\n", i + 1);
         }
     }
 

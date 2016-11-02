@@ -19,7 +19,7 @@ _Bool is_valid_ip(char *ip)
 void display_help(char *msg, _Bool with_error)
 {
     if (msg != NULL) {
-        printf(":: Error: %s\n\n", msg);
+        printf("[-] Error: %s\n\n", msg);
     }
 
     printf("Usage: dos [OPTION...] DOMAIN/IP\n");
